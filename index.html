@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HPLC Chromatogram Generator</title>
+	<style>
+		canvas { 
+			border: 1px solid black; 
+		}
+	</style>
+</head>
+<body>
+	<h1>HPLC Chromatogram Generator</h1>
+	
+	<form>
+		<label for="column">Column:</label>
+		<select name="column" id="column">
+			<option value="C18">C18</option>
+			<option value="C8">C8</option>
+			<option value="C4">C4</option>
+		</select>
+		<br>
+		
+		<label for="mobile-phase">Mobile Phase:</label>
+		<select name="mobile-phase" id="mobile-phase">
+			<option value="water-acetonitrile">Water-Acetonitrile</option>
+			<option value="water-methanol">Water-Methanol</option>
+			<option value="phosphate-buffered-saline">Phosphate Buffered Saline</option>
+		</select>
+		<br>
+		
+		<label for="gradient">Gradient:</label>
+		<input type="range" name="gradient" id="gradient" min="0" max="100" value="50">
+		<br>
+		
+		<label for="flow-rate">Flow Rate:</label>
+		<input type="number" name="flow-rate" id="flow-rate" step="0.1" value="1">
+		<label for="flow-rate">mL/min</label>
+		<br>
+		
+		<label for="injection-volume">Injection Volume:</label>
+		<input type="number" name="injection-volume" id="injection-volume" step="0.1" value="10">
+		<label for="injection-volume">µL</label>
+		<br>
+		
+		<input type="button" value="Generate Chromatogram" onclick="generateChromatogram()">
+	</form>
+	
+	<br>
+	
+	<canvas id="chromatogram" width="800" height="600">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+
+	<script src="chromatogram.js"></script>
+</body>
+</html>
